@@ -90,6 +90,25 @@ def home(request: Request):
     return HTMLResponse("<h1>Ashwini Samaneti Portfolio</h1><p>Frontend template is loading...</p>")
 
 
+@app.get("/robots.txt", include_in_schema=False)
+def robots_txt():
+    """Serves robots.txt for search engine crawlers."""
+    path = os.path.join(static_dir, "robots.txt")
+    if os.path.exists(path):
+        return FileResponse(path, media_type="text/plain")
+    return HTMLResponse("User-agent: *\nAllow: /", media_type="text/plain")
+
+
+@app.get("/sitemap.xml", include_in_schema=False)
+def sitemap_xml():
+    """Serves XML sitemap for SEO."""
+    path = os.path.join(static_dir, "sitemap.xml")
+    if os.path.exists(path):
+        return FileResponse(path, media_type="application/xml")
+    return HTMLResponse("<urlset></urlset>", media_type="application/xml")
+
+
+
 # Preserved top-level POST /contact endpoint from the initial FastAPI implementation,
 # upgraded with robust Pydantic validation and MongoDB Atlas persistence.
 @app.post("/contact", response_model=ContactResponse, status_code=status.HTTP_201_CREATED, tags=["Contact"])

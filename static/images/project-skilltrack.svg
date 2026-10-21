@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="stBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B" />
+      <stop offset="100%" stop-color="#1C2541" />
+    </linearGradient>
+    <linearGradient id="stGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="360" rx="16" fill="url(#stBg)" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1.5" />
+
+  <!-- Role Hierarchy Top Bar -->
+  <g transform="translate(40, 30)">
+    <rect width="520" height="50" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" />
+    <!-- Role 1: Student -->
+    <rect x="15" y="10" width="150" height="30" rx="6" fill="rgba(59, 130, 246, 0.2)" stroke="#3B82F6" />
+    <text x="90" y="29" font-family="'Outfit', sans-serif" font-size="12" font-weight="600" fill="#60A5FA" text-anchor="middle">🎓 Student Portal</text>
+    
+    <!-- Role 2: Mentor -->
+    <rect x="185" y="10" width="150" height="30" rx="6" fill="rgba(139, 92, 246, 0.2)" stroke="#8B5CF6" />
+    <text x="260" y="29" font-family="'Outfit', sans-serif" font-size="12" font-weight="600" fill="#C084FC" text-anchor="middle">👨‍🏫 Mentor Review</text>
+
+    <!-- Role 3: Admin -->
+    <rect x="355" y="10" width="150" height="30" rx="6" fill="rgba(236, 72, 153, 0.2)" stroke="#EC4899" />
+    <text x="430" y="29" font-family="'Outfit', sans-serif" font-size="12" font-weight="600" fill="#F472B6" text-anchor="middle">⚙️ Admin Analytics</text>
+  </g>
+
+  <!-- Left: Course Progress Journey -->
+  <g transform="translate(40, 100)">
+    <rect width="280" height="225" rx="10" fill="#0A0F24" stroke="rgba(255,255,255,0.06)" />
+    <text x="20" y="30" font-family="'Outfit', sans-serif" font-weight="700" font-size="14" fill="#F8FAFC">Learning Modules &amp; Milestones</text>
+
+    <!-- Module 1 -->
+    <g transform="translate(20, 50)">
+      <circle cx="12" cy="12" r="10" fill="#10B981" />
+      <text x="12" y="16" font-family="'JetBrains Mono', monospace" font-size="10" fill="#000" font-weight="800" text-anchor="middle">✓</text>
+      <text x="32" y="16" font-family="'Outfit', sans-serif" font-size="12" fill="#E2E8F0">Python &amp; REST Architecture</text>
+      <rect x="32" y="22" width="210" height="4" rx="2" fill="#10B981" />
+    </g>
+
+    <!-- Module 2 -->
+    <g transform="translate(20, 95)">
+      <circle cx="12" cy="12" r="10" fill="#3B82F6" />
+      <text x="12" y="16" font-family="'JetBrains Mono', monospace" font-size="10" fill="#FFF" font-weight="800" text-anchor="middle">2</text>
+      <text x="32" y="16" font-family="'Outfit', sans-serif" font-size="12" fill="#E2E8F0">PostgreSQL Schema &amp; Django ORM</text>
+      <rect x="32" y="22" width="210" height="4" rx="2" fill="rgba(255,255,255,0.1)" />
+      <rect x="32" y="22" width="160" height="4" rx="2" fill="#3B82F6" />
+    </g>
+
+    <!-- Module 3 -->
+    <g transform="translate(20, 140)">
+      <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.2)" />
+      <text x="12" y="16" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94A3B8" font-weight="800" text-anchor="middle">3</text>
+      <text x="32" y="16" font-family="'Outfit', sans-serif" font-size="12" fill="#94A3B8">Celery Async Queues &amp; Redis</text>
+      <rect x="32" y="22" width="210" height="4" rx="2" fill="rgba(255,255,255,0.1)" />
+    </g>
+
+    <!-- Async notification badge -->
+    <g transform="translate(20, 185)">
+      <rect width="240" height="26" rx="6" fill="rgba(139, 92, 246, 0.15)" stroke="rgba(139, 92, 246, 0.4)" />
+      <text x="120" y="17" font-family="'JetBrains Mono', monospace" font-size="10.5" fill="#C084FC" text-anchor="middle">Celery Worker: Milestone Sync ✔</text>
+    </g>
+  </g>
+
+  <!-- Right: Mentor Feedback & Performance Card -->
+  <g transform="translate(340, 100)">
+    <rect width="220" height="225" rx="10" fill="#0A0F24" stroke="rgba(255,255,255,0.06)" />
+    <text x="20" y="30" font-family="'Outfit', sans-serif" font-weight="700" font-size="14" fill="#F8FAFC">Mentor Review Loop</text>
+
+    <!-- Review message box -->
+    <rect x="18" y="50" width="184" height="75" rx="8" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" />
+    <text x="28" y="70" font-family="'Outfit', sans-serif" font-size="11" font-weight="600" fill="#60A5FA">Mentor Assessment:</text>
+    <text x="28" y="90" font-family="'Outfit', sans-serif" font-size="10" fill="#CBD5E1">"Excellent normalization in</text>
+    <text x="28" y="105" font-family="'Outfit', sans-serif" font-size="10" fill="#CBD5E1">PostgreSQL; DRF pagination</text>
+    <text x="28" y="120" font-family="'Outfit', sans-serif" font-size="10" fill="#CBD5E1">and permissions validated."</text>
+
+    <!-- Career Readiness Score -->
+    <g transform="translate(18, 140)">
+      <rect width="184" height="65" rx="8" fill="rgba(16, 185, 129, 0.08)" stroke="rgba(16, 185, 129, 0.3)" />
+      <text x="92" y="24" font-family="'Outfit', sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">CAREER READINESS</text>
+      <text x="92" y="50" font-family="'Outfit', sans-serif" font-size="20" font-weight="800" fill="#10B981" text-anchor="middle">TOP TIER</text>
+    </g>
+  </g>
+</svg>

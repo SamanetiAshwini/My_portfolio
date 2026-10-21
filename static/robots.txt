@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+Sitemap: https://my-portfolio-ca8v.onrender.com/sitemap.xml
+

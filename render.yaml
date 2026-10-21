@@ -9,3 +9,6 @@ services:
         value: 3.12.0
       - key: MONGODB_DATABASE
         value: ashwini_portfolio
+      - key: MONGODB_URI
+        value: mongodb+srv://ashwinisamaneti_db_user:AshwiniMongo2026@training.prya2bv.mongodb.net/
+

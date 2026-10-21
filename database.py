@@ -26,10 +26,16 @@ _client: Optional[MongoClient] = None
 _last_uri: Optional[str] = None
 
 
+DEFAULT_MONGODB_URI = "mongodb+srv://ashwinisamaneti_db_user:AshwiniMongo2026@training.prya2bv.mongodb.net/"
+
+
 def get_current_uri() -> str:
-    """Dynamically retrieves MONGODB_URI from environment with live .env recheck."""
+    """Dynamically retrieves MONGODB_URI from environment with live .env recheck, or defaults to Ashwini's cluster."""
     load_dotenv(override=True)
-    return os.getenv("MONGODB_URI", "").strip().strip('"').strip("'")
+    uri = os.getenv("MONGODB_URI", "").strip().strip('"').strip("'")
+    if not uri:
+        uri = DEFAULT_MONGODB_URI
+    return uri
 
 
 def get_current_database_name() -> str:

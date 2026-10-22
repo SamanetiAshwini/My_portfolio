@@ -16,6 +16,7 @@ PORTFOLIO_KNOWLEDGE = {
             "API, security, and code-review challenges.\n"
             "• Workflow: Challenge selection -> workspace -> submission -> isolated Docker execution -> automated test evaluation -> scoring.\n"
             "• Security: Sandboxed Docker containers with CPU/memory limits, no-network execution, and path traversal validation.\n"
+            "• GitHub Repo: https://github.com/puppalanagababu/CodeFoundry\n"
             "• Ashwini's Role: Designed backend services for authentication, challenge management, and sandboxed Docker runners."
         ),
         "prompts": ["Tell me about SkillTrack", "Tell me about SMRITI", "View all projects"]
@@ -107,13 +108,22 @@ PORTFOLIO_KNOWLEDGE = {
     "about": {
         "patterns": [r"who\s+(are\s+you|is\s+ashwini)", r"\bbio\b", r"\bbackground\b", r"about\s+(yourself|ashwini|you)", r"\bintroduce\b", r"\bprofile\b"],
         "reply": (
-            "Samaneti Ashwini is an entry-level Python Full Stack Developer and B.Tech graduate in "
-            "Artificial Intelligence from Vidya Jyothi Institute of Technology (VJIT), Hyderabad (CGPA 8.34/10). "
+            "Samaneti Ashwini is a Software Engineering Intern at Weblaze and a Python Full Stack Developer "
+            "with a B.Tech in Artificial Intelligence from Vidya Jyothi Institute of Technology (VJIT), Hyderabad (CGPA 8.34/10). "
             "She specializes in developing robust backend REST APIs (FastAPI, Django, Flask), database-driven "
-            "systems (PostgreSQL, MongoDB, SQL), containerized deployments (Docker), and integrating AI/ML models "
-            "(OpenCV, NLP, LLMs, RAG)."
+            "systems (PostgreSQL, MongoDB, SQL), containerized deployments (Docker), and integrating AI/ML solutions."
         ),
-        "prompts": ["Tell me about CodeFoundry", "What is your tech stack?", "Download resume"]
+        "prompts": ["Tell me about Weblaze internship", "Tell me about CodeFoundry", "What is your tech stack?"]
+    },
+    "experience": {
+        "patterns": [r"\b(intern(ship)?|weblaze|work(\s*experience)?|job|company)\b"],
+        "reply": (
+            "Ashwini is currently working as a **Software Engineering Intern** at **Weblaze** (Oct 2026 – Present).\n\n"
+            "• **Role**: Software Engineering Intern\n"
+            "• **Focus**: Developing scalable backend APIs, database architecture, and production web application features.\n"
+            "• **Background**: B.Tech graduate in AI from VJIT (CGPA 8.34/10) with verified hands-on projects in Django, Docker, and AI."
+        ),
+        "prompts": ["Tell me about CodeFoundry", "What are your core skills?", "Contact Ashwini"]
     },
     "greeting": {
         "patterns": [r"\b(hi|hello|hey|greetings|morning|afternoon|evening|namaste)\b"],

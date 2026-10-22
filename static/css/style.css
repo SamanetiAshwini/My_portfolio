@@ -628,10 +628,14 @@ button {
   transform: translateY(-6px);
 }
 
+.hero-avatar-img,
 .hero-avatar-svg {
   width: 100%;
   height: 100%;
   border-radius: var(--radius-lg);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 /* Floating interactive chips on hero card */

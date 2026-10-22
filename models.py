@@ -45,7 +45,7 @@ PROJECTS_DATA: List[Dict[str, Any]] = [
         ],
         "order": 1,
         "featured": True,
-        "github_url": None,  # Configurable placeholder per specification
+        "github_url": "https://github.com/puppalanagababu/CodeFoundry",
         "demo_url": None,    # Configurable placeholder per specification
         "image_svg": "/static/images/project-codefoundry.svg"
     },

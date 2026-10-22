@@ -34,16 +34,18 @@ PORTFOLIO_KNOWLEDGE = {
         "prompts": ["Tell me about CodeFoundry", "Tell me about SMRITI", "What are your skills?"]
     },
     "smriti": {
-        "patterns": [r"\bsmriti\b", r"\brobot\b", r"\bopencv\b", r"raspberry\s*pi", r"\bemotion\b"],
+        "patterns": [r"\bsmriti\b", r"\bsaarthi\b", r"\brobot\b", r"raspberry\s*pi", r"\bpaper\b", r"\bspringer\b", r"\bcigai\b"],
         "reply": (
-            "**SMRITI** is an AI-Powered College Assistant Robot prototype built with Python, OpenCV, "
-            "Speech Recognition, Text-to-Speech (TTS), ChatGPT API, and Raspberry Pi.\n\n"
-            "• Key Capabilities: Real-time face recognition and facial emotion detection with OpenCV to identify visitors.\n"
-            "• Conversational Intelligence: Integrates the ChatGPT API for context-aware responses to campus questions.\n"
-            "• Voice Interaction: Speech recognition for query input and speech synthesis for verbal output.\n"
-            "• Ashwini's Role: Built the core Python runtime on Raspberry Pi, OpenCV emotion recognition pipeline, and conversational API bridge."
+            "**Saarthi: A Smriti** is a Knowledge-Driven AI Robot for Multimodal Interaction & Assistance, "
+            "co-authored by Ashwini and presented at the **2nd International Conference on Computational Intelligence "
+            "and Generative AI (CIGAI 2026, Springer Publishing Partner)**.\n\n"
+            "• Research Paper: *'Saarthi: A Smriti – A Knowledge-Driven AI Robot for Intelligent Communication and Assistance'*\n"
+            "• Architecture: Multi-threaded Python on Raspberry Pi 4 Model B integrating cloud LLMs, Whisper speech recognition, and TB6612FNG motor control.\n"
+            "• Multimodal Feedback: SSD1306 OLED display showing animated facial expressions ('Listening' / 'Thinking') synchronized with speech output.\n"
+            "• Safety Monitoring: Dedicated flame sensor thread triggering emergency stop and voice alerts in <0.5s.\n"
+            "• Evaluation: 98.5% interaction success rate, <1s latency, and 6+ hours continuous uptime."
         ),
-        "prompts": ["Tell me about your certifications", "Tell me about your education", "Contact Ashwini"]
+        "prompts": ["Tell me about your certifications", "Tell me about Weblaze internship", "Contact Ashwini"]
     },
     "education": {
         "patterns": [r"\beducation\b", r"\bcollege\b", r"\bdegree\b", r"b\.?tech", r"\bvjit\b", r"\buniversity\b", r"\bcgpa\b", r"\bstudy\b", r"\bstudied\b"],
@@ -72,16 +74,17 @@ PORTFOLIO_KNOWLEDGE = {
         "prompts": ["Tell me about CodeFoundry", "Tell me about SkillTrack", "Tell me about SMRITI"]
     },
     "certifications": {
-        "patterns": [r"\b(certif|credentials|aws|ibm|cisco|pcap|infosys|hexart|hackathon|sih|achieve)\b"],
+        "patterns": [r"\b(certif|credentials|aws|ibm|cisco|pcap|infosys|hexart|hackathon|sih|achieve|springer|cigai|paper|published)\b"],
         "reply": (
-            "Ashwini's certifications & achievements:\n\n"
+            "Ashwini's publications & credentials:\n\n"
+            "• **Springer CIGAI 2026**: Co-authored & presented research paper *'Saarthi: A Smriti – A Knowledge-Driven AI Robot for Intelligent Communication and Assistance'*\n"
             "• **AWS Academy Graduate**: Machine Learning Foundations — Amazon Web Services (2024)\n"
             "• **PCAP**: Programming Essentials in Python — Cisco Networking Academy / OpenEDG (2023)\n"
             "• **Python for Data Science** (PY0101EN) — IBM (2023)\n"
             "• **AI Foundation / AI Advanced** — Hexart.In (NASSCOM Foundation, Li2, Hexagon) (2024)\n"
             "• **Natural Language Processing** — Infosys Springboard (2025)\n"
-            "• **Smart India Hackathon (SIH)**: Developed a Real-Time Vehicle Tracking System (Smart Vehicles theme)\n"
-            "• **NIT Warangal**: Attended national program on AI/ML/DL applications"
+            "• **Smart India Hackathon (SIH)**: Real-Time Vehicle Tracking System\n"
+            "• **NIT Warangal**: National program on AI/ML/DL architectures"
         ),
         "prompts": ["Tell me about your projects", "What are your skills?", "Contact Ashwini"]
     },

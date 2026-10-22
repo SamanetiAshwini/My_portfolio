@@ -310,7 +310,7 @@ function initProjectModals() {
         techWrap.appendChild(span);
       });
 
-      // Render Modal Actions / GitHub links
+      // Render Modal Actions / GitHub & Publication links
       const actionsWrap = document.getElementById('modalProjectActions');
       if (actionsWrap) {
         actionsWrap.innerHTML = '';
@@ -331,6 +331,76 @@ function initProjectModals() {
           `;
           actionsWrap.appendChild(ghLink);
         }
+
+        if (project.paper_url) {
+          const paperLink = document.createElement('a');
+          paperLink.href = project.paper_url;
+          paperLink.target = '_blank';
+          paperLink.rel = 'noopener noreferrer';
+          paperLink.className = 'btn btn-primary btn-sm';
+          paperLink.style.display = 'inline-flex';
+          paperLink.style.alignItems = 'center';
+          paperLink.style.gap = '0.5rem';
+          paperLink.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>Read Research Paper (PDF)</span>
+          `;
+          actionsWrap.appendChild(paperLink);
+        }
+
+        if (project.certificate_url) {
+          const certLink = document.createElement('a');
+          certLink.href = project.certificate_url;
+          certLink.target = '_blank';
+          certLink.rel = 'noopener noreferrer';
+          certLink.className = 'btn btn-outline btn-sm';
+          certLink.style.display = 'inline-flex';
+          certLink.style.alignItems = 'center';
+          certLink.style.gap = '0.5rem';
+          certLink.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="8" r="7"></circle>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+            </svg>
+            <span>View Springer Certificate</span>
+          `;
+          actionsWrap.appendChild(certLink);
+        }
+      }
+
+      // Render Photo Gallery for SMRITI
+      let galleryWrap = document.getElementById('modalProjectGallery');
+      if (!galleryWrap) {
+        galleryWrap = document.createElement('div');
+        galleryWrap.id = 'modalProjectGallery';
+        galleryWrap.style.marginTop = '1.75rem';
+        actionsWrap.parentNode.insertBefore(galleryWrap, actionsWrap);
+      }
+      galleryWrap.innerHTML = '';
+
+      if (slug === 'smriti') {
+        galleryWrap.innerHTML = `
+          <h3 class="modal-section-title" style="margin-bottom:0.75rem;">Robotic Hardware &amp; Team Gallery</h3>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; margin-bottom:1rem;">
+            <a href="/static/images/smriti-robot-side.jpg" target="_blank" rel="noopener noreferrer" style="border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border-subtle); display:block; aspect-ratio:4/3; background:#000;">
+              <img src="/static/images/smriti-robot-side.jpg" alt="Smriti Robot Side Angle with OLED Eyes" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </a>
+            <a href="/static/images/smriti-robot-top.jpg" target="_blank" rel="noopener noreferrer" style="border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border-subtle); display:block; aspect-ratio:4/3; background:#000;">
+              <img src="/static/images/smriti-robot-top.jpg" alt="Smriti Robot Top View Raspberry Pi Architecture" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </a>
+            <a href="/static/images/smriti-team.jpg" target="_blank" rel="noopener noreferrer" style="border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border-subtle); display:block; aspect-ratio:4/3; background:#000;">
+              <img src="/static/images/smriti-team.jpg" alt="Ashwini and VJIT Research Team with Dr. Rambabu Pemula" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </a>
+            <a href="/static/images/smriti-certificate.jpg" target="_blank" rel="noopener noreferrer" style="border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--border-subtle); display:block; aspect-ratio:4/3; background:#000;">
+              <img src="/static/images/smriti-certificate.jpg" alt="Springer CIGAI 2026 Certificate" style="width:100%; height:100%; object-fit:cover; transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            </a>
+          </div>
+        `;
       }
 
       modalBackdrop.classList.add('active');

@@ -93,42 +93,50 @@ PROJECTS_DATA: List[Dict[str, Any]] = [
     {
         "id": "proj-smriti",
         "slug": "smriti",
-        "title": "SMRITI",
-        "tagline": "AI-Powered College Assistant Robot",
-        "category": "AI, Computer Vision & Robotics",
+        "title": "Saarthi: A Smriti",
+        "tagline": "Knowledge-Driven AI Robot for Multimodal Interaction & Assistance · Springer CIGAI 2026",
+        "category": "Multimodal AI & Robotics (Springer Published)",
         "technologies": [
-            "Python",
-            "OpenCV",
-            "Speech Recognition",
-            "Text-to-Speech (TTS)",
-            "ChatGPT API",
-            "Raspberry Pi"
+            "Python (Multi-threaded)",
+            "Raspberry Pi 4 Model B",
+            "Cloud LLMs (Gemini / GPT)",
+            "Whisper Speech Recognition",
+            "SSD1306 OLED Animation",
+            "TB6612FNG Motor Driver",
+            "IR Flame Safety Sensor",
+            "Flask Web Interface"
         ],
         "problem": (
-            "College departments and engineering campuses require accessible, automated assistance to guide "
-            "visitors, answer repetitive departmental inquiries, and deliver an interactive robotic greeting experience."
+            "Modern service and campus environments require low-cost, scalable robotic platforms capable of "
+            "natural spoken dialogue, expressive emotional feedback, autonomous or remote navigation, and "
+            "continuous environmental safety hazard monitoring without high latency or excessive hardware costs."
         ),
         "solution": (
-            "SMRITI is a physical AI-powered college assistant robot prototype running on Raspberry Pi. "
-            "It combines computer vision for face and emotion detection with LLM conversational intelligence "
-            "and natural voice interaction to assist students and visitors in real-time."
+            "Saarthi: A Smriti is an AI-enabled multimodal interactive robotic system presented at Springer CIGAI 2026. "
+            "Built on a Raspberry Pi 4 Model B running a multi-threaded Python framework, it integrates cloud LLMs for "
+            "contextual dialogue, an SSD1306 OLED display for synchronized facial expression states ('Listening' / 'Thinking'), "
+            "TB6612FNG motor control with web-based teleoperation, and active-high infrared flame sensing for <0.5s emergency alerts."
         ),
         "features": [
-            "Real-time face recognition and facial emotion detection using OpenCV to identify visitors and tailor greetings.",
-            "Context-aware collegiate query answering powered by ChatGPT API integration with customized departmental prompts.",
-            "Hands-free voice interaction utilizing speech recognition for audio input and text-to-speech for vocal responses.",
-            "Embedded Python runtime optimized for Raspberry Pi hardware and low-latency audio/visual processing."
+            "Published Research: Presented at the 2nd International Conference on Computational Intelligence & Generative AI (CIGAI 2026, Springer Publishing Partner).",
+            "Multi-Threaded Architecture: Independent concurrent threads for audio perception, LLM conversational intelligence, motor actuation, and high-priority safety monitoring.",
+            "Multimodal Expressiveness: SSD1306 OLED animated eyes visual feedback synced with text-to-speech voice responses.",
+            "Voice-to-Voice Pipeline: USB microphone audio digitization with Whisper speech-to-text, LLM context reasoning, and loudspeaker audio output.",
+            "Real-Time Environmental Safety: Continuous flame sensor monitoring with immediate motor halt, buzzer trigger, and verbal warning within <0.5 seconds.",
+            "Documented Experimental Performance: <1s interaction response latency, 98.5% interaction success rate, 97% directional motor accuracy, and 6+ hours continuous system uptime."
         ],
         "contributions": [
-            "Developed the core Python event-driven architecture and device runtime on Raspberry Pi.",
-            "Implemented OpenCV facial detection, feature extraction, and emotion classification pipelines.",
-            "Integrated the ChatGPT API with structured prompting to supply collegiate guidance and department answers.",
-            "Configured bidirectional speech-to-text and text-to-speech pipelines for seamless verbal communication."
+            "Co-authored peer-reviewed research paper 'Saarthi: A Smriti – A Knowledge-Driven AI Robot for Intelligent Communication and Assistance' presented at Springer CIGAI 2026.",
+            "Engineered the multi-threaded Python framework on Raspberry Pi 4 Model B coordinating speech capture, cloud LLM requests, and actuator threads.",
+            "Implemented the real-time safety monitor thread for instant flame detection, fail-safe motor interruption, and verbal emergency alerts.",
+            "Integrated SSD1306 OLED animated facial states and web-based motor control interface for responsive indoor service assistance."
         ],
         "order": 3,
         "featured": True,
-        "github_url": None,  # Configurable placeholder per specification
-        "demo_url": None,    # Configurable placeholder per specification
-        "image_svg": "/static/images/project-smriti.svg"
+        "paper_url": "/static/docs/Saarthi_Smriti_Research_Paper.pdf",
+        "certificate_url": "/static/images/smriti-certificate.jpg",
+        "github_url": None,
+        "demo_url": None,
+        "image_svg": "/static/images/smriti-robot-top.jpg"
     }
 ]

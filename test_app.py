@@ -194,7 +194,10 @@ def test_static_certificates():
         "/static/images/certificate-ibm-python.png",
         "/static/images/certificate-hexart-ai.png",
         "/static/images/certificate-infosys-nlp.png",
-        "/static/images/smriti-certificate.jpg"
+        "/static/images/certificate-sih-hackathon.jpg",
+        "/static/images/certificate-nit-warangal.jpg",
+        "/static/images/smriti-certificate.jpg",
+        "/static/images/samaneti-ashwini.jpg"
     ]
     for cert_url in certs:
         res = client.get(cert_url)

@@ -15,6 +15,7 @@ def test_home_html():
     assert response.status_code == 200
     assert "text/html" in response.headers["content-type"]
     assert "Samaneti Ashwini" in response.text
+    assert "https://github.com/SamanetiAshwini/SkillTracker" in response.text
     print("[PASS] test_home_html")
 
 
@@ -66,13 +67,20 @@ def test_filter_projects_by_tech():
 
 
 def test_get_project_detail_and_404():
-    # Valid detail
+    # Valid detail: CodeFoundry
     response = client.get("/api/projects/codefoundry")
     assert response.status_code == 200
     data = response.json()
     assert data["title"] == "CodeFoundry"
     assert len(data["features"]) >= 3
     assert len(data["contributions"]) >= 3
+
+    # Valid detail: SkillTrack (verifying GitHub URL)
+    response_st = client.get("/api/projects/skilltrack")
+    assert response_st.status_code == 200
+    data_st = response_st.json()
+    assert data_st["title"] == "SkillTrack"
+    assert data_st["github_url"] == "https://github.com/SamanetiAshwini/SkillTracker"
 
     # Non-existent
     response_404 = client.get("/api/projects/unknown-proj")
@@ -141,6 +149,13 @@ def test_chatbot_service():
     assert "CodeFoundry" in data_cf["reply"]
     assert "Docker" in data_cf["reply"]
 
+    # Query about SkillTrack
+    res_st = client.post("/api/chat", json={"message": "Tell me about SkillTrack"})
+    assert res_st.status_code == 200
+    data_st = res_st.json()
+    assert "SkillTrack" in data_st["reply"]
+    assert "https://github.com/SamanetiAshwini/SkillTracker" in data_st["reply"]
+
     # Query about education
     res_edu = client.post("/api/chat", json={"message": "Where did you study?"})
     assert res_edu.status_code == 200
@@ -154,6 +169,14 @@ def test_chatbot_service():
     data_skills = res_skills.json()
     assert "FastAPI" in data_skills["reply"]
     assert "Django" in data_skills["reply"]
+    # Query about certifications
+    res_cert = client.post("/api/chat", json={"message": "What certifications do you have?"})
+    assert res_cert.status_code == 200
+    data_cert = res_cert.json()
+    assert "AWS Academy Graduate" in data_cert["reply"]
+    assert "PCAP" in data_cert["reply"]
+    assert "Cognitive Class" in data_cert["reply"]
+    assert "Infosys" in data_cert["reply"]
     print("[PASS] test_chatbot_service")
 
 
@@ -162,6 +185,30 @@ def test_static_resume_file():
     assert res.status_code == 200
     assert len(res.content) > 100000  # verified PDF size ~305KB
     print(f"[PASS] test_static_resume_file ({len(res.content)} bytes)")
+
+
+def test_static_certificates():
+    certs = [
+        "/static/images/certificate-aws-ml.png",
+        "/static/images/certificate-cisco-pcap.png",
+        "/static/images/certificate-ibm-python.png",
+        "/static/images/certificate-hexart-ai.png",
+        "/static/images/certificate-infosys-nlp.png",
+        "/static/images/smriti-certificate.jpg"
+    ]
+    for cert_url in certs:
+        res = client.get(cert_url)
+        assert res.status_code == 200, f"Failed to load certificate: {cert_url}"
+        assert len(res.content) > 10000, f"Certificate file too small: {cert_url}"
+    print(f"[PASS] test_static_certificates ({len(certs)} verified certificates loaded)")
+
+
+def test_sitemap_xml():
+    res = client.get("/sitemap.xml")
+    assert res.status_code == 200
+    assert "application/xml" in res.headers["content-type"]
+    assert "#certifications" in res.text
+    print("[PASS] test_sitemap_xml")
 
 
 if __name__ == "__main__":
@@ -177,5 +224,7 @@ if __name__ == "__main__":
     test_contact_unverified_db_handling()
     test_chatbot_service()
     test_static_resume_file()
-    print("\nALL 11 AUTOMATED TESTS PASSED SUCCESSFULLY!")
+    test_static_certificates()
+    test_sitemap_xml()
+    print("\nALL 13 AUTOMATED TESTS PASSED SUCCESSFULLY!")
 

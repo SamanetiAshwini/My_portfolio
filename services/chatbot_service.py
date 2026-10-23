@@ -29,6 +29,7 @@ PORTFOLIO_KNOWLEDGE = {
             "• Purpose: Role-based platform for Students, Mentors, and Administrators.\n"
             "• Key Features: Course enrollment, modular topic progression, assignment submissions, mentor code reviews, and performance analytics.\n"
             "• Async Architecture: Redis and Celery power background milestone calculations and automated alerts.\n"
+            "• GitHub Repo: https://github.com/SamanetiAshwini/SkillTracker\n"
             "• Ashwini's Role: Relational schema design with Django ORM, JWT authentication, and REST APIs with filtering, search, and pagination."
         ),
         "prompts": ["Tell me about CodeFoundry", "Tell me about SMRITI", "What are your skills?"]
@@ -74,17 +75,18 @@ PORTFOLIO_KNOWLEDGE = {
         "prompts": ["Tell me about CodeFoundry", "Tell me about SkillTrack", "Tell me about SMRITI"]
     },
     "certifications": {
-        "patterns": [r"\b(certif|credentials|aws|ibm|cisco|pcap|infosys|hexart|hackathon|sih|achieve|springer|cigai|paper|published)\b"],
+        "patterns": [r"\b(certif\w*|credentials?|aws|ibm|cisco|pcap|infosys|hexart|hackathon\w*|sih|achieve\w*|springer|cigai|paper\w*|published)\b"],
         "reply": (
-            "Ashwini's publications & credentials:\n\n"
+            "Ashwini's verified industry credentials & research publications:\n\n"
+            "• **AWS Academy Graduate**: Machine Learning Foundations — Amazon Web Services (Credly verified, 20 course hours, 2024)\n"
+            "• **PCAP: Programming Essentials in Python** — Cisco Networking Academy & OpenEDG Python Institute (2023)\n"
+            "• **IBM PY0101EN: Python 101 for Data Science** — IBM & Cognitive Class (Cert ID: 457e7aa670404755af04ab1dda2c643d, 2023)\n"
+            "• **AI Foundation** — Hexart.In (Hexagon, Li2 Group, NASSCOM Foundation, Cert #66f57b9d4accc073af0fdf66, 2024)\n"
+            "• **Introduction to Natural Language Processing** — Infosys Springboard (2025)\n"
             "• **Springer CIGAI 2026**: Co-authored & presented research paper *'Saarthi: A Smriti – A Knowledge-Driven AI Robot for Intelligent Communication and Assistance'*\n"
-            "• **AWS Academy Graduate**: Machine Learning Foundations — Amazon Web Services (2024)\n"
-            "• **PCAP**: Programming Essentials in Python — Cisco Networking Academy / OpenEDG (2023)\n"
-            "• **Python for Data Science** (PY0101EN) — IBM (2023)\n"
-            "• **AI Foundation / AI Advanced** — Hexart.In (NASSCOM Foundation, Li2, Hexagon) (2024)\n"
-            "• **Natural Language Processing** — Infosys Springboard (2025)\n"
             "• **Smart India Hackathon (SIH)**: Real-Time Vehicle Tracking System\n"
-            "• **NIT Warangal**: National program on AI/ML/DL architectures"
+            "• **NIT Warangal**: National program on AI/ML/DL architectures\n\n"
+            "All official certificates can be viewed in high resolution directly in the Certifications section!"
         ),
         "prompts": ["Tell me about your projects", "What are your skills?", "Contact Ashwini"]
     },

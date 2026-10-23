@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAmbientCanvas();
   initProjectFilters();
   initProjectModals();
+  initCertificateModals();
   initActionTooltips();
 });
 
@@ -484,3 +485,87 @@ function showToast(message) {
   }, 3200);
 }
 window.showToast = showToast;
+
+/* ===================================================================
+   9. Interactive Certificate Lightbox Modal
+   =================================================================== */
+function initCertificateModals() {
+  const modalBackdrop = document.getElementById('certificateModal');
+  const modalCloseBtn = document.getElementById('certModalCloseBtn');
+  const modalBottomClose = document.getElementById('certModalCloseBottomBtn');
+  const modalTitle = document.getElementById('certModalTitle');
+  const modalIssuer = document.getElementById('certModalIssuer');
+  const modalDate = document.getElementById('certModalDate');
+  const modalMeta = document.getElementById('certModalMeta');
+  const modalImg = document.getElementById('certModalImg');
+  const modalDirectLink = document.getElementById('certModalDirectLink');
+  const modalVerifyLink = document.getElementById('certModalVerifyLink');
+
+  if (!modalBackdrop) return;
+
+  const closeCertModal = () => {
+    modalBackdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  const openCertModal = (data) => {
+    if (modalTitle) modalTitle.textContent = data.title || 'Certificate of Completion';
+    if (modalIssuer) modalIssuer.textContent = data.issuer || 'Official Credential';
+    if (modalDate) modalDate.textContent = data.date || '';
+    if (modalMeta) modalMeta.textContent = data.meta || '';
+    if (modalImg) {
+      modalImg.src = data.img || '';
+      modalImg.alt = data.title || 'Certificate Preview';
+    }
+    if (modalDirectLink) {
+      modalDirectLink.href = data.img || '#';
+    }
+    if (modalVerifyLink) {
+      if (data.verify) {
+        modalVerifyLink.href = data.verify;
+        modalVerifyLink.style.display = 'inline-flex';
+      } else {
+        modalVerifyLink.style.display = 'none';
+      }
+    }
+    modalBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const triggers = document.querySelectorAll('.btn-cert-preview, .cert-thumbnail-box');
+  triggers.forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      e.preventDefault();
+      const dataset = el.closest('[data-cert-img]') ? el.closest('[data-cert-img]').dataset : el.dataset;
+      openCertModal({
+        title: dataset.certTitle,
+        issuer: dataset.certIssuer,
+        date: dataset.certDate,
+        meta: dataset.certMeta,
+        img: dataset.certImg,
+        verify: dataset.certVerify
+      });
+    });
+
+    el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        el.click();
+      }
+    });
+  });
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeCertModal);
+  if (modalBottomClose) modalBottomClose.addEventListener('click', closeCertModal);
+
+  modalBackdrop.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) closeCertModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
+      closeCertModal();
+    }
+  });
+}

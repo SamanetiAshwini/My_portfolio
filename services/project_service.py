@@ -32,7 +32,11 @@ def seed_projects_if_needed() -> int:
             res = col.insert_many(docs)
             logger.info(f"Seeded {len(res.inserted_ids)} projects into MongoDB.")
             return len(res.inserted_ids)
-        return 0
+        else:
+            # Synchronize fields with models.PROJECTS_DATA
+            for p in PROJECTS_DATA:
+                col.update_one({"id": p["id"]}, {"$set": dict(p)}, upsert=True)
+            return count
     except Exception as exc:
         logger.warning(f"Project seeding check encountered: {exc}")
         return 0

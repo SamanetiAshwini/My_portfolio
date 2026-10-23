@@ -86,7 +86,7 @@ PROJECTS_DATA: List[Dict[str, Any]] = [
         ],
         "order": 2,
         "featured": True,
-        "github_url": None,  # Configurable placeholder per specification
+        "github_url": "https://github.com/SamanetiAshwini/SkillTracker",
         "demo_url": None,    # Configurable placeholder per specification
         "image_svg": "/static/images/project-skilltrack.svg"
     },
